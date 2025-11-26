@@ -6,26 +6,38 @@
 
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background: #f2f5f7;
       margin: 0;
       padding: 20px;
+      font-family: Arial, sans-serif;
       text-align: center;
+      color: white;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Contenedor del fondo de partículas */
+    #particles-js {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #0d1117;   /* FONDO OSCURO */
+      z-index: -1;
     }
 
     h1 {
       font-size: 40px;
-      color: #3498db;
+      color: #9cb3c9;
     }
 
     h2 {
       font-size: 28px;
-      color: #2ecc71;
+      color: #cdd9e5;
     }
 
     p {
       font-size: 18px;
-      color: #333;
       width: 80%;
       margin: auto;
     }
@@ -34,7 +46,7 @@
       display: inline-block;
       padding: 12px 25px;
       margin: 10px;
-      background: #3498db;
+      background: #5c6bc0;
       color: white;
       text-decoration: none;
       border-radius: 10px;
@@ -43,37 +55,65 @@
     }
 
     .boton:hover {
-      background: #21618c;
-    }
-
-    .boton-verde {
-      background: #2ecc71;
-    }
-
-    .boton-verde:hover {
-      background: #239b56;
+      background: #3f4d9b;
     }
   </style>
 </head>
 
 <body>
 
+  <!-- FONDO ANIMADO -->
+  <div id="particles-js"></div>
+
   <h1>Mi Exposición</h1>
 
-  <h2>Tema principal</h2>
+  <h2>Tema Principal</h2>
 
   <p>
-    Aquí puedes escribir el contenido de tu exposición, agregar información,
-    colocar imágenes o explicar tu tema paso por paso. Todo este texto puedes modificarlo.
+    Aquí puedes escribir tu información. El fondo es oscuro con partículas plomas flotando.
   </p>
 
   <br>
 
   <!-- BOTONES -->
   <a class="boton" href="#">Botón Azul</a>
-  <a class="boton boton-verde" href="#">Botón Verde</a>
+  <a class="boton" href="#">Botón 2</a>
+
+  <!-- SCRIPT DE PARTÍCULAS -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+
+  <script>
+    particlesJS("particles-js", {
+      "particles": {
+        "number": {
+          "value": 80
+        },
+        "color": {
+          "value": "#c0c0c0"   /* PARTÍCULAS PLOMAS */
+        },
+        "shape": {
+          "type": "circle"
+        },
+        "opacity": {
+          "value": 0.5
+        },
+        "size": {
+          "value": 3
+        },
+        "line_linked": {
+          "enable": false
+        },
+        "move": {
+          "enable": true,
+          "speed": 1.2
+        }
+      }
+    });
+  </script>
 
 </body>
 </html>
+
+
 
 
