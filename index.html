@@ -1,118 +1,253 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Mi Exposición</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Mi Sitio Web Profesional</title>
 
-  <style>
-    body {
-      margin: 0;
-      padding: 20px;
-      font-family: Arial, sans-serif;
-      text-align: center;
-      color: white;
-      position: relative;
-      z-index: 1;
-    }
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
-    /* Contenedor del fondo de partículas */
-    #particles-js {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: #0d1117;   /* FONDO OSCURO */
-      z-index: -1;
-    }
+<style>
+/* --------------------- ESTILO GENERAL ---------------------- */
+body {
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    background: #090909;
+    color: #fff;
+    overflow-x: hidden;
+}
 
-    h1 {
-      font-size: 40px;
-      color: #9cb3c9;
-    }
+/* --------------------- NAVBAR ---------------------- */
+nav {
+    width: 100%;
+    background: rgba(20,20,25,0.4);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(0,255,255,0.3);
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 40px;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+}
 
-    h2 {
-      font-size: 28px;
-      color: #cdd9e5;
-    }
+nav a {
+    color: cyan;
+    text-decoration: none;
+    margin: 0 18px;
+    font-weight: 500;
+    transition: 0.3s;
+}
 
-    p {
-      font-size: 18px;
-      width: 80%;
-      margin: auto;
-    }
+nav a:hover {
+    color: #7df9ff;
+}
 
-    .boton {
-      display: inline-block;
-      padding: 12px 25px;
-      margin: 10px;
-      background: #5c6bc0;
-      color: white;
-      text-decoration: none;
-      border-radius: 10px;
-      transition: 0.3s;
-      font-size: 18px;
-    }
+/* --------------------- MENÚ DESPLEGABLE ---------------------- */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
 
-    .boton:hover {
-      background: #3f4d9b;
-    }
-  </style>
+.dropdown-btn {
+    cursor: pointer;
+    color: cyan;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background: rgba(0, 0, 0, 0.8);
+    min-width: 180px;
+    border: 1px solid cyan;
+    border-radius: 8px;
+    padding: 10px 0;
+    z-index: 2000;
+}
+
+.dropdown-content a {
+    color: cyan;
+    padding: 12px;
+    display: block;
+    text-decoration: none;
+}
+
+.dropdown-content a:hover {
+    background: rgba(0,255,255,0.1);
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* --------------------- SECCIONES ---------------------- */
+section {
+    padding: 120px 70px;
+    min-height: 90vh;
+    animation: slide 1s ease;
+}
+
+@keyframes slide {
+    from { transform: translateX(-40px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+/* --------------------- CONTENEDORES CON IMAGEN ---------------------- */
+.box {
+    display: flex;
+    gap: 30px;
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(20px);
+    padding: 30px;
+    border-radius: 16px;
+    border: 1px solid rgba(0,255,255,0.2);
+    box-shadow: 0 0 20px rgba(0,255,255,0.15);
+}
+
+.box img {
+    width: 45%;
+    border-radius: 12px;
+    border: 1px solid cyan;
+}
+
+/* --------------------- PARTICULAS ---------------------- */
+#particles {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: -5;
+    background: black;
+}
+
+</style>
 </head>
 
 <body>
 
-  <!-- FONDO ANIMADO -->
-  <div id="particles-js"></div>
+<div id="particles"></div>
 
-  <h1>trabajo de fundamenos de sistemas de informaccion</h1>
+<!-- --------------------- NAVBAR ---------------------- -->
+<nav>
+    <div>
+        <a href="#inicio">Inicio</a>
+        <a href="#curso">Curso</a>
+        <a href="#integrantes">Integrantes</a>
 
-  <h2>empresa amazon </h2>
+        <div class="dropdown">
+            <span class="dropdown-btn">Tema ▾</span>
+            <div class="dropdown-content">
+                <a href="#empresa">Empresa</a>
+                <a href="#historia">Historia</a>
+                <a href="#mision">Misión</a>
+                <a href="#vision">Visión</a>
+            </div>
+        </div>
+    </div>
+</nav>
 
-  <p>
-    Aquí puedes escribir tu información. El fondo es oscuro con partículas plomas flotando.
-  </p>
+<!-- --------------------- SECCIONES ---------------------- -->
 
-  <br>
+<section id="inicio">
+    <h1 style="color: cyan;">Bienvenido a mi Sitio Web</h1>
+    <p>Este es un sitio diseñado para la exposición.</p>
+</section>
 
-  <!-- BOTONES -->
-  <a class="boton" href="#">Botón Azul</a>
-  <a class="boton" href="#">Botón 2</a>
+<section id="curso">
+    <h1 style="color: cyan;">Curso</h1>
+    <div class="box">
+        <img src="https://via.placeholder.com/500x300" alt="Imagen">
+        <p>Texto del curso aquí...</p>
+    </div>
+</section>
 
-  <!-- SCRIPT DE PARTÍCULAS -->
-  <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+<section id="integrantes">
+    <h1 style="color: cyan;">Integrantes</h1>
+    <div class="box">
+        <img src="https://via.placeholder.com/500x300" alt="Imagen">
+        <p>Aquí puedes colocar la lista de integrantes con fotos si deseas.</p>
+    </div>
+</section>
 
-  <script>
-    particlesJS("particles-js", {
-      "particles": {
-        "number": {
-          "value": 80
-        },
-        "color": {
-          "value": "#c0c0c0"   /* PARTÍCULAS PLOMAS */
-        },
-        "shape": {
-          "type": "circle"
-        },
-        "opacity": {
-          "value": 0.5
-        },
-        "size": {
-          "value": 3
-        },
-        "line_linked": {
-          "enable": false
-        },
-        "move": {
-          "enable": true,
-          "speed": 1.2
-        }
-      }
+<section id="empresa">
+    <h1 style="color: cyan;">Empresa</h1>
+    <div class="box">
+        <img src="https://via.placeholder.com/500x300" alt="Imagen">
+        <p>Aquí va la información sobre la empresa.</p>
+    </div>
+</section>
+
+<section id="historia">
+    <h1 style="color: cyan;">Historia</h1>
+    <div class="box">
+        <img src="https://via.placeholder.com/500x300" alt="Imagen">
+        <p>Aquí va la historia de la empresa.</p>
+    </div>
+</section>
+
+<section id="mision">
+    <h1 style="color: cyan;">Misión</h1>
+    <div class="box">
+        <img src="https://via.placeholder.com/500x300" alt="Imagen">
+        <p>Aquí va la misión.</p>
+    </div>
+</section>
+
+<section id="vision">
+    <h1 style="color: cyan;">Visión</h1>
+    <div class="box">
+        <img src="https://via.placeholder.com/500x300" alt="Imagen">
+        <p>Aquí va la visión.</p>
+    </div>
+</section>
+
+<!-- --------------------- SCRIPT PARTICULAS ---------------------- -->
+<script>
+const canvas = document.createElement("canvas");
+const ctx = canvas.getContext("2d");
+document.getElementById("particles").appendChild(canvas);
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let particles = [];
+
+for (let i = 0; i < 80; i++) {
+    particles.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        size: 2,
+        speedX: (Math.random() - 0.5) * 0.5,
+        speedY: (Math.random() - 0.5) * 0.5
     });
-  </script>
+}
+
+function animateParticles() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    particles.forEach(p => {
+        p.x += p.speedX;
+        p.y += p.speedY;
+
+        if (p.x < 0) p.x = canvas.width;
+        if (p.x > canvas.width) p.x = 0;
+        if (p.y < 0) p.y = canvas.height;
+        if (p.y > canvas.height) p.y = 0;
+
+        ctx.fillStyle = "rgba(180,180,180,0.8)";
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        ctx.fill();
+    });
+    requestAnimationFrame(animateParticles);
+}
+
+animateParticles();
+</script>
 
 </body>
 </html>
+
+
 
 
 
