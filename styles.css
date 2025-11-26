@@ -1,17 +1,46 @@
-body {
-  margin: 0;
-  padding: 20px;
-  font-family: Arial, sans-serif;
-  text-align: center;
-
-  /* Fondo animado */
-  background: linear-gradient(270deg, #3498db, #9b59b6, #e74c3c, #f1c40f);
-  background-size: 800% 800%;
-  animation: animacionFondo 15s ease infinite;
+/* --- Fade In --- */
+.fade-in {
+    animation: fadeIn 1.2s ease forwards;
+}
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
-@keyframes animacionFondo {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+/* --- Slide In Left --- */
+.slide-left {
+    animation: slideLeft 1s ease forwards;
 }
+@keyframes slideLeft {
+    from { opacity: 0; transform: translateX(-50px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+/* --- Slide In Right --- */
+.slide-right {
+    animation: slideRight 1s ease forwards;
+}
+@keyframes slideRight {
+    from { opacity: 0; transform: translateX(50px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+/* --- Zoom In --- */
+.zoom-in {
+    animation: zoomIn 1s ease forwards;
+}
+@keyframes zoomIn {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* --- Glow Neon --- */
+.neon {
+    text-shadow: 0 0 10px cyan, 0 0 20px cyan;
+    animation: neonPulse 1.5s infinite alternate;
+}
+@keyframes neonPulse {
+    from { text-shadow: 0 0 10px cyan; }
+    to { text-shadow: 0 0 25px cyan; }
+}
+
