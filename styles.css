@@ -1,0 +1,17 @@
+body {
+  margin: 0;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  text-align: center;
+
+  /* Fondo animado */
+  background: linear-gradient(270deg, #3498db, #9b59b6, #e74c3c, #f1c40f);
+  background-size: 800% 800%;
+  animation: animacionFondo 15s ease infinite;
+}
+
+@keyframes animacionFondo {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
