@@ -72,5 +72,146 @@ section {
 .box {
   display: flex;
   gap: 30px;
-  background: rgba(255, 255, 255, 0.06)
-
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(15px);
+  padding: 35px;
+  border-radius: 18px;
+  border: 1px solid rgba(0,255,255,0.2);
+  box-shadow: 0 0 20px rgba(0,255,255,0.15);
+}
+.box img {
+  width: 45%;
+  border-radius: 12px;
+  border: 1px solid cyan;
+  animation: float 3s ease-in-out infinite;
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+/* Imagen izquierda SOLO en sección inicio */
+#inicio .content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+}
+#inicio img {
+  width: 320px;
+  border-radius: 12px;
+  animation: flotar 3s ease-in-out infinite;
+}
+@keyframes flotar {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+</style>
+</head>
+<body>
+<div id="particles"></div>
+<nav>
+  <div>
+    <a href="#inicio">Inicio</a>
+    <a href="#curso">Curso</a>
+    <a href="#integrantes">Integrantes</a>
+    <div class="dropdown">
+      <span class="dropdown-btn">Tema ▾</span>
+      <div class="dropdown-content">
+        <a href="#empresa">Empresa</a>
+        <a href="#historia">Historia</a>
+        <a href="#mision">Misión</a>
+        <a href="#vision">Visión</a>
+      </div>
+    </div>
+  </div>
+</nav>
+<section id="inicio">
+  <div class="content">
+    <img src="gato_negro.jpg" alt="imagen">
+    <div>
+      <h1 style="color: cyan;">Trabajo de Fundamentos y Sistemas de Información</h1>
+      <p>En esta página hablaremos sobre el tema elegido, incluyendo información relevante sobre la empresa seleccionada.</p>
+    </div>
+  </div>
+</section>
+<section id="curso">
+  <h1 style="color: cyan;">Curso</h1>
+  <p style="max-width: 700px; text-align: center; margin: 0 auto; margin-bottom: 20px;">
+    Aquí va la información del curso que desees colocar.
+  </p>
+  <div class="box" style="text-align:center; margin-top:20px;">
+    <img src="logo_unam.jpg" alt="Imagen del curso">
+  </div>
+</section>
+<section id="integrantes">
+  <h1 style="color: cyan;">Integrantes</h1>
+  <div class="box">
+    <img src="https://via.placeholder.com/500x300" alt="Imagen">
+    <p>- Quispe Apaza Rony Franklin <br>- Brayan</p>
+  </div>
+</section>
+<section id="empresa">
+  <h1 style="color: cyan;">Empresa</h1>
+  <div class="box">
+    <img src="https://via.placeholder.com/500x300" alt="Imagen">
+    <p>Aquí va la información sobre la empresa.</p>
+  </div>
+</section>
+<section id="historia">
+  <h1 style="color: cyan;">Historia</h1>
+  <div class="box">
+    <img src="https://via.placeholder.com/500x300" alt="Imagen">
+    <p>Aquí va la historia de la empresa.</p>
+  </div>
+</section>
+<section id="mision">
+  <h1 style="color: cyan;">Misión</h1>
+  <div class="box">
+    <img src="https://via.placeholder.com/500x300" alt="Imagen">
+    <p>Aquí va la misión de la empresa.</p>
+  </div>
+</section>
+<section id="vision">
+  <h1 style="color: cyan;">Visión</h1>
+  <div class="box">
+    <img src="https://via.placeholder.com/500x300" alt="Imagen">
+    <p>Aquí va la visión de la empresa.</p>
+  </div>
+</section>
+<script>
+const canvas = document.createElement("canvas");
+const ctx = canvas.getContext("2d");
+document.getElementById("particles").appendChild(canvas);
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+let particles = [];
+for (let i = 0; i < 90; i++) {
+  particles.push({
+    x: Math.random() * canvas.width,
+    y: Math.random() * canvas.height,
+    size: 2,
+    speedX: (Math.random() - 0.5) * 0.6,
+    speedY: (Math.random() - 0.5) * 0.6
+  });
+}
+function animateParticles() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  particles.forEach(p => {
+    p.x += p.speedX;
+    p.y += p.speedY;
+    if (p.x < 0) p.x = canvas.width;
+    if (p.x > canvas.width) p.x = 0;
+    if (p.y < 0) p.y = canvas.height;
+    if (p.y > canvas.height) p.y = 0;
+    ctx.fillStyle = "rgba(160,160,160,0.8)";
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+    ctx.fill();
+  });
+  requestAnimationFrame(animateParticles);
+}
+animateParticles();
+</script>
+</body>
+</html>
