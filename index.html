@@ -3,269 +3,83 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Mi Sitio Web Profesional</title>
-
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-
+<title>Página con Animación</title>
 <style>
-/* --------------------- ESTILO GENERAL ---------------------- */
-body {
+  body {
     margin: 0;
-    font-family: "Poppins", sans-serif;
-    background: #050505;
-    color: #fff;
+    background: #000;
+    font-family: Arial, sans-serif;
     overflow-x: hidden;
-}
+    color: white;
+  }
 
-/* --------------------- NAVBAR ---------------------- */
-nav {
-    width: 100%;
-    background: rgba(20,20,25,0.4);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(0,255,255,0.3);
-    display: flex;
-    justify-content: space-between;
-    padding: 14px 40px;
-    position: fixed;
-    top: 0;
-    z-index: 1000;
-}
+  header {
+    text-align: center;
+    padding: 40px 0;
+  }
 
-nav a, .dropdown-btn {
-    color: cyan;
-    text-decoration: none;
-    margin: 0 18px;
-    font-weight: 500;
-    transition: 0.3s;
+  header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+  }
+
+  .botones {
+    margin-top: 20px;
+  }
+
+  button {
+    padding: 12px 25px;
+    margin: 10px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 6px;
     cursor: pointer;
-}
+  }
 
-nav a:hover, .dropdown-btn:hover {
-    color: #7df9ff;
-}
-
-/* --------------------- MENÚ DESPLEGABLE ---------------------- */
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background: rgba(0, 10, 15, 0.9);
-    min-width: 190px;
-    border: 1px solid cyan;
-    border-radius: 10px;
-    padding: 10px 0;
-    backdrop-filter: blur(10px);
-}
-
-.dropdown-content a {
-    color: cyan;
-    padding: 12px;
-    display: block;
-}
-
-.dropdown-content a:hover {
-    background: rgba(0,255,255,0.15);
-}
-
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
-/* --------------------- PARTÍCULAS ---------------------- */
-#particles {
-    position: fixed;
+  .imagen-contenedor {
     width: 100%;
-    height: 100%;
-    z-index: -5;
-}
-
-/* --------------------- SECCIONES ---------------------- */
-section {
-    padding: 140px 70px;
-    min-height: 90vh;
-    animation: slide 1s ease;
-}
-
-@keyframes slide {
-    from { transform: translateY(40px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
-}
-
-/* --------------------- CONTENEDORES CRISTAL ---------------------- */
-.box {
     display: flex;
-    gap: 30px;
-    background: rgba(255, 255, 255, 0.06);
-    backdrop-filter: blur(15px);
-    padding: 35px;
-    border-radius: 18px;
-    border: 1px solid rgba(0,255,255,0.2);
-    box-shadow: 0 0 20px rgba(0,255,255,0.15);
-}
+    justify-content: center;
+    margin-top: 40px;
+  }
 
-/* --------------------- IMÁGENES CON ANIMACIÓN ---------------------- */
-.box img {
-    width: 45%;
-    border-radius: 12px;
-    border: 1px solid cyan;
-    animation: float 3s ease-in-out infinite;
-}
+  .imagen-animada {
+    width: 300px;
+    animation: flotar 3s infinite ease-in-out;
+    filter: drop-shadow(0 0 15px white);
+  }
 
-@keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-12px); }
-}
+  @keyframes flotar {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+  }
 </style>
 </head>
-
 <body>
-
-<div id="particles"></div>
-
-<!-- --------------------- NAVBAR ---------------------- -->
-<nav>
-    <div>
-        <a href="#inicio">Inicio</a>
-        <a href="#curso">Curso</a>
-        <a href="#integrantes">Integrantes</a>
-
-        <div class="dropdown">
-            <span class="dropdown-btn">Tema ▾</span>
-            <div class="dropdown-content">
-                <a href="#empresa">Empresa</a>
-                <a href="#historia">Historia</a>
-                <a href="#mision">Misión</a>
-                <a href="#vision">Visión</a>
-            </div>
-        </div>
+  <header>
+    <h1>TEMA - CURSO</h1>
+    <div class="botones">
+      <button onclick="alert('Integrantes')">Integrantes</button>
+      <button onclick="alert('Tema')">Tema</button>
     </div>
-</nav>
+  </header>
 
-<!-- --------------------- SECCIONES ---------------------- -->
+  <div class="imagen-contenedor">
+    <img src="imagen.png" alt="Imagen animada" class="imagen-animada" />
+  </div>
 
-<section id="inicio" style="text-align:center; padding: 40px;">
-    <h1 style="color: cyan;">Trabajo de Fundamentos y Sistemas de Información</h1>
-    <p>En esta página hablaremos sobre el tema elegido, incluyendo información relevante sobre la empresa seleccionada.</p>
-
-    <!-- Imagen con animación -->
-    <img src="gato_negro.jpg" alt="  " 
-         style="
-            width: 350px;
-            border-radius: 12px;
-            animation: flotar 3s ease-in-out infinite;
-         ">
-</section>
-
-<style>
-@keyframes flotar {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
-    100% { transform: translateY(0px); }
-}
-</style>
-
-
-<section id="curso">
-    <h1 style="color: cyan;">Curso</h1>
-    <p style="max-width: 700px; text-align: center; margin: 0 auto; margin-bottom: 20px;">
-        Aquí va la información del curso que desees colocar. Puedes escribir una descripción,
-        el nombre del curso o cualquier detalle adicional.
+  <section id="curso" style="text-align:center; padding:40px 20px;">
+    <h2 style="color:cyan;">Curso</h2>
+    <p style="max-width:700px; margin:auto; font-size:1.1rem; line-height:1.6;">
+      Aquí va la información del curso. Puedes escribir una descripción, detalles del tema,
+      objetivos del trabajo o cualquier texto que necesites mostrar en esta sección.
     </p>
 
-    <div class="box" style="text-align:center; margin-top:20px;">
-        <img src="logo_unam.jpg" alt="Imagen del curso" class="imagen-animada" 
-             style="width:350px; border-radius:12px;">
+    <div class="imagen-contenedor">
+      <img src="curso.jpg" alt="Imagen del curso" class="imagen-animada" />
     </div>
-</section>
-
-
-<section id="integrantes">
-    <h1 style="color: cyan;">Integrantes</h1>
-    <div class="box">
-        <img src="https://via.placeholder.com/500x300" alt="Imagen">
-        <p>- Quispe Apaza Rony Franklin <br>- Brayan</p>
-    </div>
-</section>
-
-<section id="empresa">
-    <h1 style="color: cyan;">Empresa</h1>
-    <div class="box">
-        <img src="https://via.placeholder.com/500x300" alt="Imagen">
-        <p>Aquí va la información sobre la empresa.</p>
-    </div>
-</section>
-
-<section id="historia">
-    <h1 style="color: cyan;">Historia</h1>
-    <div class="box">
-        <img src="https://via.placeholder.com/500x300" alt="Imagen">
-        <p>Aquí va la historia de la empresa.</p>
-    </div>
-</section>
-
-<section id="mision">
-    <h1 style="color: cyan;">Misión</h1>
-    <div class="box">
-        <img src="https://via.placeholder.com/500x300" alt="Imagen">
-        <p>Aquí va la misión de la empresa.</p>
-    </div>
-</section>
-
-<section id="vision">
-    <h1 style="color: cyan;">Visión</h1>
-    <div class="box">
-        <img src="https://via.placeholder.com/500x300" alt="Imagen">
-        <p>Aquí va la visión de la empresa.</p>
-    </div>
-</section>
-
-<!-- --------------------- SCRIPT PARTICULAS ---------------------- -->
-<script>
-const canvas = document.createElement("canvas");
-const ctx = canvas.getContext("2d");
-document.getElementById("particles").appendChild(canvas);
-
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-
-let particles = [];
-
-for (let i = 0; i < 90; i++) {
-    particles.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        size: 2,
-        speedX: (Math.random() - 0.5) * 0.6,
-        speedY: (Math.random() - 0.5) * 0.6
-    });
-}
-
-function animateParticles() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    particles.forEach(p => {
-        p.x += p.speedX;
-        p.y += p.speedY;
-
-        if (p.x < 0) p.x = canvas.width;
-        if (p.x > canvas.width) p.x = 0;
-        if (p.y < 0) p.y = canvas.height;
-        if (p.y > canvas.height) p.y = 0;
-
-        ctx.fillStyle = "rgba(160,160,160,0.8)";
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-        ctx.fill();
-    });
-    requestAnimationFrame(animateParticles);
-}
-
-animateParticles();
-</script>
+  </section>
 
 </body>
 </html>
