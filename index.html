@@ -13,7 +13,7 @@
 body {
     margin: 0;
     font-family: "Poppins", sans-serif;
-    background: #090909;
+    background: #050505;
     color: #fff;
     overflow-x: hidden;
 }
@@ -26,21 +26,22 @@ nav {
     border-bottom: 1px solid rgba(0,255,255,0.3);
     display: flex;
     justify-content: space-between;
-    padding: 12px 40px;
+    padding: 14px 40px;
     position: fixed;
     top: 0;
     z-index: 1000;
 }
 
-nav a {
+nav a, .dropdown-btn {
     color: cyan;
     text-decoration: none;
     margin: 0 18px;
     font-weight: 500;
     transition: 0.3s;
+    cursor: pointer;
 }
 
-nav a:hover {
+nav a:hover, .dropdown-btn:hover {
     color: #7df9ff;
 }
 
@@ -50,76 +51,75 @@ nav a:hover {
     display: inline-block;
 }
 
-.dropdown-btn {
-    cursor: pointer;
-    color: cyan;
-}
-
 .dropdown-content {
     display: none;
     position: absolute;
-    background: rgba(0, 0, 0, 0.8);
-    min-width: 180px;
+    background: rgba(0, 10, 15, 0.9);
+    min-width: 190px;
     border: 1px solid cyan;
-    border-radius: 8px;
+    border-radius: 10px;
     padding: 10px 0;
-    z-index: 2000;
+    backdrop-filter: blur(10px);
 }
 
 .dropdown-content a {
     color: cyan;
     padding: 12px;
     display: block;
-    text-decoration: none;
 }
 
 .dropdown-content a:hover {
-    background: rgba(0,255,255,0.1);
+    background: rgba(0,255,255,0.15);
 }
 
 .dropdown:hover .dropdown-content {
     display: block;
 }
 
-/* --------------------- SECCIONES ---------------------- */
-section {
-    padding: 120px 70px;
-    min-height: 90vh;
-    animation: slide 1s ease;
-}
-
-@keyframes slide {
-    from { transform: translateX(-40px); opacity: 0; }
-    to { transform: translateX(0); opacity: 1; }
-}
-
-/* --------------------- CONTENEDORES CON IMAGEN ---------------------- */
-.box {
-    display: flex;
-    gap: 30px;
-    background: rgba(255, 255, 255, 0.06);
-    backdrop-filter: blur(20px);
-    padding: 30px;
-    border-radius: 16px;
-    border: 1px solid rgba(0,255,255,0.2);
-    box-shadow: 0 0 20px rgba(0,255,255,0.15);
-}
-
-.box img {
-    width: 45%;
-    border-radius: 12px;
-    border: 1px solid cyan;
-}
-
-/* --------------------- PARTICULAS ---------------------- */
+/* --------------------- PARTÍCULAS ---------------------- */
 #particles {
     position: fixed;
     width: 100%;
     height: 100%;
     z-index: -5;
-    background: black;
 }
 
+/* --------------------- SECCIONES ---------------------- */
+section {
+    padding: 140px 70px;
+    min-height: 90vh;
+    animation: slide 1s ease;
+}
+
+@keyframes slide {
+    from { transform: translateY(40px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* --------------------- CONTENEDORES CRISTAL ---------------------- */
+.box {
+    display: flex;
+    gap: 30px;
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(15px);
+    padding: 35px;
+    border-radius: 18px;
+    border: 1px solid rgba(0,255,255,0.2);
+    box-shadow: 0 0 20px rgba(0,255,255,0.15);
+}
+
+/* --------------------- IMÁGENES CON ANIMACIÓN ---------------------- */
+.box img {
+    width: 45%;
+    border-radius: 12px;
+    border: 1px solid cyan;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-12px); }
+}
 </style>
 </head>
 
@@ -149,15 +149,15 @@ section {
 <!-- --------------------- SECCIONES ---------------------- -->
 
 <section id="inicio">
-    <h1 style="color: cyan;">trabajo de fundamentos y sistemas de informacion</h1>
-    <p>en esta pag habalremos del respectivo tema que se nos encargo de elegir una empresa</p>
+    <h1 style="color: cyan;">Trabajo de Fundamentos y Sistemas de Información</h1>
+    <p>En esta página hablaremos sobre el tema elegido, incluyendo información relevante sobre la empresa seleccionada.</p>
 </section>
 
 <section id="curso">
     <h1 style="color: cyan;">Curso</h1>
     <div class="box">
         <img src="https://via.placeholder.com/500x300" alt="Imagen">
-        <p>fundamentos de funadmentos de sistemas de informacion</p>
+        <p>Fundamentos de Sistemas de Información</p>
     </div>
 </section>
 
@@ -165,8 +165,7 @@ section {
     <h1 style="color: cyan;">Integrantes</h1>
     <div class="box">
         <img src="https://via.placeholder.com/500x300" alt="Imagen">
-        <p>-quispeapaza rony franklin </p>
-        <p>-brayan</p>
+        <p>- Quispe Apaza Rony Franklin <br>- Brayan</p>
     </div>
 </section>
 
@@ -190,7 +189,7 @@ section {
     <h1 style="color: cyan;">Misión</h1>
     <div class="box">
         <img src="https://via.placeholder.com/500x300" alt="Imagen">
-        <p>Aquí va la misión.</p>
+        <p>Aquí va la misión de la empresa.</p>
     </div>
 </section>
 
@@ -198,7 +197,7 @@ section {
     <h1 style="color: cyan;">Visión</h1>
     <div class="box">
         <img src="https://via.placeholder.com/500x300" alt="Imagen">
-        <p>Aquí va la visión.</p>
+        <p>Aquí va la visión de la empresa.</p>
     </div>
 </section>
 
@@ -213,13 +212,13 @@ canvas.height = window.innerHeight;
 
 let particles = [];
 
-for (let i = 0; i < 80; i++) {
+for (let i = 0; i < 90; i++) {
     particles.push({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
         size: 2,
-        speedX: (Math.random() - 0.5) * 0.5,
-        speedY: (Math.random() - 0.5) * 0.5
+        speedX: (Math.random() - 0.5) * 0.6,
+        speedY: (Math.random() - 0.5) * 0.6
     });
 }
 
@@ -234,7 +233,7 @@ function animateParticles() {
         if (p.y < 0) p.y = canvas.height;
         if (p.y > canvas.height) p.y = 0;
 
-        ctx.fillStyle = "rgba(180,180,180,0.8)";
+        ctx.fillStyle = "rgba(160,160,160,0.8)";
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
         ctx.fill();
@@ -247,6 +246,7 @@ animateParticles();
 
 </body>
 </html>
+
 
 
 
