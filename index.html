@@ -57,33 +57,44 @@
 </style>
 </head>
 <body>
-  <header>
-    <h1>TEMA - CURSO</h1>
-    <div class="botones">
+  <header style="display:flex; justify-content:center; align-items:center; gap:40px; padding:60px 20px; flex-wrap:wrap;">
+
+  <!-- Imagen izquierda -->
+  <img src="imagen.png" alt="Imagen animada" class="imagen-animada" style="width:260px; animation:flotar 3s infinite ease-in-out; filter:drop-shadow(0 0 15px white); border-radius:10px;" />
+
+  <!-- Texto derecha -->
+  <div style="text-align:left; max-width:500px;">
+    <h1 style="margin:0; font-size:2.5rem; letter-spacing:2px;">TEMA - CURSO</h1>
+    <div class="botones" style="margin-top:20px;">
       <button onclick="alert('Integrantes')">Integrantes</button>
       <button onclick="alert('Tema')">Tema</button>
     </div>
-  </header>
+  </div>
+
+</header>
 
   <div class="imagen-contenedor">
     <img src="imagen.png" alt="Imagen animada" class="imagen-animada" />
   </div>
 
-  <section id="curso" style="text-align:center; padding:40px 20px;">
-    <h2 style="color:cyan;">Curso</h2>
-    <p style="max-width:700px; margin:auto; font-size:1.1rem; line-height:1.6;">
+  <section id="curso" style="padding:60px 20px; display:flex; justify-content:center; align-items:center; gap:40px; flex-wrap:wrap;">
+
+  <!-- Imagen izquierda -->
+  <img src="curso.jpg" alt="Imagen del curso" class="imagen-animada" style="width:280px; border-radius:12px; animation:flotar 3s infinite ease-in-out;" />
+
+  <!-- Texto derecha -->
+  <div style="max-width:500px; text-align:left;">
+    <h2 style="color:cyan; margin-top:0;">Curso</h2>
+    <p style="font-size:1.1rem; line-height:1.6;">
       Aquí va la información del curso. Puedes escribir una descripción, detalles del tema,
       objetivos del trabajo o cualquier texto que necesites mostrar en esta sección.
     </p>
+  </div>
 
-    <div class="imagen-contenedor">
-      <img src="curso.jpg" alt="Imagen del curso" class="imagen-animada" />
-    </div>
-  </section>
+</section>
 
 </body>
 </html>
-
 
 
 
