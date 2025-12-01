@@ -4,7 +4,9 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Mi Sitio Web Profesional</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
 <style>
 body {
   margin: 0;
@@ -13,6 +15,7 @@ body {
   color: #fff;
   overflow-x: hidden;
 }
+
 nav {
   width: 100%;
   background: rgba(20,20,25,0.4);
@@ -25,6 +28,7 @@ nav {
   top: 0;
   z-index: 1000;
 }
+
 nav a, .dropdown-btn {
   color: cyan;
   text-decoration: none;
@@ -33,42 +37,57 @@ nav a, .dropdown-btn {
   transition: 0.3s;
   cursor: pointer;
 }
+
 nav a:hover, .dropdown-btn:hover {
   color: #7df9ff;
 }
+
 .dropdown { position: relative; display: inline-block; }
+
 .dropdown-content {
   display: none;
   position: absolute;
-  background: rgba(0, 10, 15, 0.9);
+  background: rgba(0, 10, 15, 0.95);
   min-width: 190px;
   border: 1px solid cyan;
   border-radius: 10px;
   padding: 10px 0;
   backdrop-filter: blur(10px);
+  z-index: 9999;
 }
+
 .dropdown-content a {
   color: cyan;
   padding: 12px;
   display: block;
 }
-.dropdown-content a:hover { background: rgba(0,255,255,0.15); }
-.dropdown:hover .dropdown-content { display: block; }
+
+.dropdown-content a:hover {
+  background: rgba(0,255,255,0.15);
+}
+
+.dropdown:hover > .dropdown-content {
+  display: block;
+}
+
 #particles {
   position: fixed;
   width: 100%;
   height: 100%;
   z-index: -5;
 }
+
 section {
   padding: 140px 70px;
   min-height: 90vh;
   animation: slide 1s ease;
 }
+
 @keyframes slide {
   from { transform: translateY(40px); opacity: 0; }
   to { transform: translateY(0); opacity: 1; }
 }
+
 .box {
   display: flex;
   gap: 30px;
@@ -79,124 +98,226 @@ section {
   border: 1px solid rgba(0,255,255,0.2);
   box-shadow: 0 0 20px rgba(0,255,255,0.15);
 }
+
 .box img {
   width: 45%;
   border-radius: 12px;
   border: 1px solid cyan;
   animation: float 3s ease-in-out infinite;
 }
+
 @keyframes float {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-12px); }
 }
-/* Imagen izquierda SOLO en sección inicio */
+
 #inicio .content {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 40px;
 }
+
 #inicio img {
-  width: 320px;
+  width: 480px;
   border-radius: 12px;
   animation: flotar 3s ease-in-out infinite;
 }
+
 @keyframes flotar {
   0% { transform: translateY(0); }
   50% { transform: translateY(-10px); }
   100% { transform: translateY(0); }
 }
 </style>
+
 </head>
 <body>
+
 <div id="particles"></div>
+
 <nav>
   <div>
     <a href="#inicio">Inicio</a>
     <a href="#curso">Curso</a>
     <a href="#integrantes">Integrantes</a>
+
+    <!-- MENÚ NUEVO COMPLETO -->
     <div class="dropdown">
       <span class="dropdown-btn">Tema ▾</span>
       <div class="dropdown-content">
-        <a href="#empresa">Empresa</a>
-        <a href="#historia">Historia</a>
-        <a href="#mision">Misión</a>
-        <a href="#vision">Visión</a>
+
+        <a href="#nombre-institucion">1. Nombre de la Institución</a>
+
+        <!-- 1.2 Fines -->
+        <div class="dropdown">
+          <span class="dropdown-btn" style="padding:12px; display:block;">1.2. Fines de la Organización ▸</span>
+          <div class="dropdown-content" style="left:190px; top:0;">
+            <a href="#vision">1.2.1. Visión</a>
+            <a href="#mision">1.2.2. Misión</a>
+          </div>
+        </div>
+
+        <a href="#cantidad-informacion">1.5. Cantidad de información que maneja</a>
+
+        <a href="#almacenamiento">1.6. Cómo almacena la información</a>
+
+        <a href="#hardware">1.7. Tipo de hardware disponible</a>
+
+        <!-- 1.8 Comunicaciones -->
+        <div class="dropdown">
+          <span class="dropdown-btn" style="padding:12px; display:block;">1.8. Tecnología de comunicaciones ▸</span>
+          <div class="dropdown-content" style="left:190px; top:0;">
+            <a href="#tecnologia-comunicaciones">1.8. Tecnología de comunicaciones que usa</a>
+          </div>
+        </div>
+
+        <!-- Propuesta IT -->
+        <div class="dropdown">
+          <span class="dropdown-btn" style="padding:12px; display:block;">Propuesta IT ▸</span>
+          <div class="dropdown-content" style="left:190px; top:0;">
+            <a href="#sis-info">Sistemas de información</a>
+            <a href="#sis-bd">Sistemas de Base de datos</a>
+            <a href="#sis-com">Sistemas de comunicaciones</a>
+            <a href="#sis-proc">Sistemas de procesos</a>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
 </nav>
-<section id="inicio" style="padding: 40px; display:flex; align-items:center; justify-content:center; gap:40px;">
+
+<!-- INICIO -->
+<section id="inicio">
   <div class="box" style="flex-direction:row; align-items:center;">
     <div style="max-width:500px; text-align:left;">
       <h1 style="color: cyan;">Trabajo de Fundamentos y Sistemas de Información</h1>
       <p>En esta página hablaremos sobre el tema elegido, incluyendo información relevante sobre la empresa seleccionada.</p>
     </div>
-    <img src="gato_negro.jpg" alt=" " style="width: 480px; border-radius: 12px; animation: flotar 3s ease-in-out infinite;">
+    <img src="gato_negro.jpg" alt="">
   </div>
 </section>
-    <div>
-      <h1 style="color: cyan;">Trabajo de Fundamentos y Sistemas de Información</h1>
-      <p>En esta página hablaremos sobre el tema elegido, incluyendo información relevante sobre la empresa seleccionada.</p>
-    </div>
-  </div>
-</section>
+
+<!-- CURSO -->
 <section id="curso">
   <h1 style="color: cyan;">Curso</h1>
-  <div class="box" style="margin-top:20px; display:flex; align-items:center; gap:30px;">
-    <img src="logo_unam.jpg" alt="Imagen del curso" class="imagen-animada" style="width:250px; border-radius:12px;">
-    <div style="max-width:700px; text-align:left;">
-      <p>
-        Aquí va la información del curso que desees colocar. Puedes escribir una descripción,
-        el nombre del curso o cualquier detalle adicional.
-      </p>
+  <div class="box">
+    <img src="logo_unam.jpg" style="width:250px;">
+    <div>
+      <p>Aquí va la información del curso que desees colocar.</p>
     </div>
   </div>
 </section>
-  </div>
-</section>
+
+<!-- INTEGRANTES -->
 <section id="integrantes">
   <h1 style="color: cyan;">Integrantes</h1>
   <div class="box">
-    <img src="https://via.placeholder.com/500x300" alt="Imagen">
+    <img src="https://via.placeholder.com/500x300">
     <p>- Quispe Apaza Rony Franklin <br>- Brayan</p>
   </div>
 </section>
-<section id="empresa">
-  <h1 style="color: cyan;">Empresa</h1>
+
+<!-- SECCIONES NUEVAS DEL MENÚ -->
+<section id="nombre-institucion">
+  <h1 style="color:cyan;">1. Nombre de la Institución</h1>
   <div class="box">
-    <img src="https://via.placeholder.com/500x300" alt="Imagen">
-    <p>Aquí va la información sobre la empresa.</p>
+    <img src="https://via.placeholder.com/500x300">
+    <p>Aquí va la información.</p>
   </div>
 </section>
-<section id="historia">
-  <h1 style="color: cyan;">Historia</h1>
-  <div class="box">
-    <img src="https://via.placeholder.com/500x300" alt="Imagen">
-    <p>Aquí va la historia de la empresa.</p>
-  </div>
-</section>
-<section id="mision">
-  <h1 style="color: cyan;">Misión</h1>
-  <div class="box">
-    <img src="https://via.placeholder.com/500x300" alt="Imagen">
-    <p>Aquí va la misión de la empresa.</p>
-  </div>
-</section>
+
 <section id="vision">
-  <h1 style="color: cyan;">Visión</h1>
+  <h1 style="color:cyan;">1.2.1 Visión</h1>
   <div class="box">
-    <img src="https://via.placeholder.com/500x300" alt="Imagen">
-    <p>Aquí va la visión de la empresa.</p>
+    <img src="https://via.placeholder.com/500x300">
+    <p>Aquí va la visión.</p>
   </div>
 </section>
+
+<section id="mision">
+  <h1 style="color:cyan;">1.2.2 Misión</h1>
+  <div class="box">
+    <img src="https://via.placeholder.com/500x300">
+    <p>Aquí va la misión.</p>
+  </div>
+</section>
+
+<section id="cantidad-informacion">
+  <h1 style="color:cyan;">1.5. Cantidad de información</h1>
+  <div class="box">
+    <img src="https://via.placeholder.com/500x300">
+    <p>Aquí va la información.</p>
+  </div>
+</section>
+
+<section id="almacenamiento">
+  <h1 style="color:cyan;">1.6. Cómo almacena la información</h1>
+  <div class="box">
+    <img src="https://via.placeholder.com/500x300">
+    <p>Aquí va el almacenamiento.</p>
+  </div>
+</section>
+
+<section id="hardware">
+  <h1 style="color:cyan;">1.7. Tipo de hardware</h1>
+  <div class="box">
+    <img src="https://via.placeholder.com/500x300">
+    <p>Aquí va el hardware.</p>
+  </div>
+</section>
+
+<section id="tecnologia-comunicaciones">
+  <h1 style="color:cyan;">1.8. Tecnología de comunicaciones</h1>
+  <div class="box">
+    <img src="https://via.placeholder.com/500x300">
+    <p>Aquí va la tecnología de comunicaciones.</p>
+  </div>
+</section>
+
+<section id="sis-info">
+  <h1 style="color:cyan;">Sistemas de información</h1>
+  <div class="box">
+    <img src="https://via.placeholder.com/500x300">
+    <p>Aquí va el contenido.</p>
+  </div>
+</section>
+
+<section id="sis-bd">
+  <h1 style="color:cyan;">Sistemas de Base de datos</h1>
+  <div class="box">
+    <img src="https://via.placeholder.com/500x300">
+    <p>Aquí va el contenido.</p>
+  </div>
+</section>
+
+<section id="sis-com">
+  <h1 style="color:cyan;">Sistemas de comunicaciones</h1>
+  <div class="box">
+    <img src="https://via.placeholder.com/500x300">
+    <p>Aquí va el contenido.</p>
+  </div>
+</section>
+
+<section id="sis-proc">
+  <h1 style="color:cyan;">Sistemas de procesos</h1>
+  <div class="box">
+    <img src="https://via.placeholder.com/500x300">
+    <p>Aquí va el contenido.</p>
+  </div>
+</section>
+
 <script>
 const canvas = document.createElement("canvas");
 const ctx = canvas.getContext("2d");
 document.getElementById("particles").appendChild(canvas);
+
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
+
 let particles = [];
+
 for (let i = 0; i < 90; i++) {
   particles.push({
     x: Math.random() * canvas.width,
@@ -206,26 +327,34 @@ for (let i = 0; i < 90; i++) {
     speedY: (Math.random() - 0.5) * 0.6
   });
 }
+
 function animateParticles() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
+
   particles.forEach(p => {
     p.x += p.speedX;
     p.y += p.speedY;
+
     if (p.x < 0) p.x = canvas.width;
     if (p.x > canvas.width) p.x = 0;
     if (p.y < 0) p.y = canvas.height;
     if (p.y > canvas.height) p.y = 0;
+
     ctx.fillStyle = "rgba(160,160,160,0.8)";
     ctx.beginPath();
     ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
     ctx.fill();
   });
+
   requestAnimationFrame(animateParticles);
 }
+
 animateParticles();
 </script>
+
 </body>
 </html>
+
 
 
 
